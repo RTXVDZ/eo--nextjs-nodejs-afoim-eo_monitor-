@@ -51,9 +51,6 @@ export default function OriginPullSection() {
       boundaryGap: false,
       data: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00']
     },
-    yAxis: {
-      type: 'value'
-    },
     series: [
       {
         name: '回源请求流量',

@@ -32,7 +32,7 @@ export async function GET(request: Request) {
         )
 
         // 1. Find ZoneId (Pages usually requires 'default-pages-zone')
-        let targetZoneId = searchParams.get('zoneId')
+        let targetZoneId: string | null = searchParams.get('zoneId')
 
         if (!targetZoneId) {
              try {
@@ -46,10 +46,10 @@ export async function GET(request: Request) {
                 const zonesData = await teoClient.DescribeZones({})
                 if (zonesData && zonesData.Zones) {
                     const pagesZone = zonesData.Zones.find((z: any) => z.ZoneName === 'default-pages-zone')
-                    if (pagesZone) {
+                    if (pagesZone && pagesZone.ZoneId) {
                         targetZoneId = pagesZone.ZoneId
                         console.log(`Found default-pages-zone: ${targetZoneId}`)
-                    } else if (zonesData.Zones.length > 0) {
+                    } else if (zonesData.Zones.length > 0 && zonesData.Zones[0].ZoneId) {
                         targetZoneId = zonesData.Zones[0].ZoneId
                         console.log(`default-pages-zone not found, using first zone: ${targetZoneId}`)
                     }

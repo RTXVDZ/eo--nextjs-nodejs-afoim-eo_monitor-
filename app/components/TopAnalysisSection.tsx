@@ -5,9 +5,14 @@ import dynamic from 'next/dynamic'
 
 const ReactECharts = dynamic(() => import('echarts-for-react'), { ssr: false })
 
+interface MapDataItem {
+  name: string
+  value: number
+}
+
 export default function TopAnalysisSection() {
-  const [worldMapData, setWorldMapData] = useState([])
-  const [countryData, setCountryData] = useState([])
+  const [worldMapData, setWorldMapData] = useState<MapDataItem[]>([])
+  const [countryData, setCountryData] = useState<MapDataItem[]>([])
 
   useEffect(() => {
     // Fetch top analysis data
