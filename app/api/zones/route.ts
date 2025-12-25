@@ -4,10 +4,28 @@ import { getKeys } from '@/app/lib/keys'
 
 export async function GET() {
     try {
+        console.log('🔍 开始处理zones请求')
+        console.log('环境信息:', {
+            NODE_ENV: process.env.NODE_ENV,
+            CF_PAGES: process.env.CF_PAGES,
+            CLOUDFLARE_PAGES: process.env.CLOUDFLARE_PAGES
+        })
+        
         const { secretId, secretKey } = getKeys()
         
         if (!secretId || !secretKey) {
-            return NextResponse.json({ error: "Missing credentials" }, { status: 500 })
+            console.error('❌ 缺少API凭据')
+            return NextResponse.json({ 
+                error: "Missing credentials",
+                message: "请在Cloudflare Pages环境变量中设置SECRET_ID和SECRET_KEY",
+                debug: {
+                    secretIdPresent: !!secretId,
+                    secretKeyPresent: !!secretKey,
+                    envKeys: Object.keys(process.env).filter(key => 
+                        key.includes('SECRET') || key.includes('CF_') || key.includes('NEXT_')
+                    )
+                }
+            }, { status: 500 })
         }
 
         const TeoClient = teo.v20220901.Client

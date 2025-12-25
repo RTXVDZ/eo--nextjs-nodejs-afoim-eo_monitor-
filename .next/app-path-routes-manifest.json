@@ -1,10 +1,10 @@
 {
   "/api/config/route": "/api/config",
-  "/_not-found/page": "/_not-found",
-  "/api/pages/build-count/route": "/api/pages/build-count",
   "/api/pages/cloud-function-monthly-stats/route": "/api/pages/cloud-function-monthly-stats",
+  "/api/pages/build-count/route": "/api/pages/build-count",
   "/api/pages/cloud-function-requests/route": "/api/pages/cloud-function-requests",
   "/api/traffic/route": "/api/traffic",
   "/api/zones/route": "/api/zones",
+  "/_not-found/page": "/_not-found",
   "/page": "/"
 }

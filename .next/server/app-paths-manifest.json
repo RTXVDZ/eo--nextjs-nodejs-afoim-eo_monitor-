@@ -1,10 +1,10 @@
 {
   "/api/config/route": "app/api/config/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/pages/build-count/route": "app/api/pages/build-count/route.js",
   "/api/pages/cloud-function-monthly-stats/route": "app/api/pages/cloud-function-monthly-stats/route.js",
+  "/api/pages/build-count/route": "app/api/pages/build-count/route.js",
   "/api/pages/cloud-function-requests/route": "app/api/pages/cloud-function-requests/route.js",
   "/api/traffic/route": "app/api/traffic/route.js",
   "/api/zones/route": "app/api/zones/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js"
 }

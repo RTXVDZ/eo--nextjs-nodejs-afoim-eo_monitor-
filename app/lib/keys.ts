@@ -3,6 +3,19 @@ export function getKeys() {
     const secretId = process.env.SECRET_ID
     const secretKey = process.env.SECRET_KEY
 
+    // 添加调试日志
+    if (!secretId || !secretKey) {
+        console.warn('⚠️  API密钥未找到或为空')
+        console.log('环境变量检查:')
+        console.log('- SECRET_ID:', secretId ? '已设置' : '未设置')
+        console.log('- SECRET_KEY:', secretKey ? '已设置' : '未设置')
+        console.log('当前环境变量:', Object.keys(process.env).filter(key => 
+            key.includes('SECRET') || key.includes('CF_') || key.includes('NEXT_')
+        ))
+    } else {
+        console.log('✅ API密钥验证通过')
+    }
+
     return { secretId, secretKey }
 }
 
