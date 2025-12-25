@@ -32,8 +32,8 @@
 
 ### 1. 克隆项目
 ```bash
-git clone https://github.com/afoim/eo_monitior
-cd eo_monitior
+https://github.com/RTXVDZ/eo--nextjs-nodejs-afoim-eo_monitor-
+eo--nextjs-nodejs-afoim-eo_monitor-
 ```
 
 ### 2. 安装依赖
